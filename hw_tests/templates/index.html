@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2001 Dice Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>2001 Dice Game</h1>
+
+        <div class="scores">
+            <div class="player">
+                <h2>Player</h2>
+                <p>Score: {{ player_score }}</p>
+                {% if player_roll %}
+                    <p>Rolled a {{ player_die }}: {{ player_roll }}</p>
+                {% endif %}
+            </div>
+
+            <div class="computer">
+                <h2>Computer</h2>
+                <p>Score: {{ computer_score }}</p>
+                {% if computer_roll %}
+                    <p>Chose {{ computer_die }} and rolled: {{ computer_roll }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if winner %}
+            <div class="winner">
+                <h2>{{ winner }} wins!</h2>
+            </div>
+        {% endif %}
+
+        <form method="post">
+            <label for="player_die">Choose your die:</label>
+            <select name="player_die" id="player_die">
+                <option value="D3" {% if player_die == 'D3' %}selected{% endif %}>D3</option>
+                <option value="D4" {% if player_die == 'D4' %}selected{% endif %}>D4</option>
+                <option value="D6" {% if player_die == 'D6' %}selected{% endif %}>D6</option>
+                <option value="D8" {% if player_die == 'D8' %}selected{% endif %}>D8</option>
+                <option value="D10" {% if player_die == 'D10' %}selected{% endif %}>D10</option>
+                <option value="D12" {% if player_die == 'D12' %}selected{% endif %}>D12</option>
+                <option value="D20" {% if player_die == 'D20' %}selected{% endif %}>D20</option>
+                <option value="D100" {% if player_die == 'D100' %}selected{% endif %}>D100</option>
+            </select>
+            <button type="submit">Roll!</button>
+        </form>
+
+        <a href="{{ url_for('reset') }}" class="reset-button">Reset Game</a>
+    </div>
+</body>
+</html>

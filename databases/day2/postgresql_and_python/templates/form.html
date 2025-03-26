@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <!-- movie -->
+    <div>
+        <form class="movie_form" method="post" action="#">
+            <input name="movie_id" type="hidden" value="{{movie_id}}"/>
+            <label>Name</label><br>
+            <input name="movie_name" type="text" maxlength="255" value="{{movie_name}}"/><br>
+            <label>Description</label><br>
+            <input name="movie_description" type="text" maxlength="255" value="{{movie_description}}"/><br>
+            <button type="submit" name="submit" value="movie">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>
