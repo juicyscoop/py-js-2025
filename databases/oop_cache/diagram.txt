@@ -1,0 +1,12 @@
+
+
+# Princip Cachovani
+
+
+vstup -> volani_funkce(vstup) -> vystup
+
+x -> volani_funkce(x) -> pohled do cache -> vystup
+
+
+
+vstupni_data = 1
