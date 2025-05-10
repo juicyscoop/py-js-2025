@@ -1,7 +1,8 @@
-"""coderslab URL Configuration
+"""
+URL configuration for day3_django_project project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
+    https://docs.djangoproject.com/en/5.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -16,17 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from exercises_app.views import show_articles, show_bands
-from football.views import league_table, show_games_played, add_game, modify_team
-from ui_app.views import show_pretty_ui
+from day3_app.views import ex1, ex2, forms_ex1, forms_ex2
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("articles/", show_articles),
-    path("show-band/<int:band_id>/", show_bands),
-    path("table/", league_table),
-    path("games_played/<int:team_id>/", show_games_played),
-    path("add-game/", add_game),
-    path("modify-team/<int:team_id>/", modify_team),
-    path("ui/", show_pretty_ui)
+    path("exercise1/", ex1),
+    path("exercise1/<int:start>/", ex1),
+    path("exercise1/<int:start>/<int:end>/", ex1),
+    path("exercise2/<int:width>/<int:height>/", ex2),
+    path("forms/exercise1/", forms_ex1),
+    path("forms/exercise2/", forms_ex2),
 ]
